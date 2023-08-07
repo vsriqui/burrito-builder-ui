@@ -1,4 +1,4 @@
-describe("empty spec", () => {
+describe("Good post", () => {
   it("Should post and receive the data", () => {
 
     cy.intercept("GET", 'http://localhost:3001/api/v1/orders', {
