@@ -1,18 +1,39 @@
 import { useState } from "react";
+import { postOrders } from "../../apiCalls";
 
-function OrderForm(props) {
+
+function OrderForm({addOrder, ...props}) {
   const [name, setName] = useState("");
   const [ingredients, setIngredients] = useState([]);
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    clearInputs();
-  }
+  console.log(ingredients)
 
-  function clearInputs() {
-    setName("");
-    setIngredients([]);
-  };
+  function handleSubmit(e) {
+  //   e.preventDefault();
+  //   clearInputs();
+  // }
+
+  // function clearInputs() {
+  //   setName("");
+  //   setIngredients([]);
+  // };
+
+  // function submitOrder(event) {
+  //   event.preventDefault()
+  //   const newOrder = {
+  //     name,
+  //     ingredients
+  //   }
+
+     
+  //   postOrders(newOrder)
+  //   .then(aOrder => {
+  //     addOrder(aOrder);
+  //     clearInputs();
+  //   })
+  //   .catch(err => alert(err)); 
+  
+  }
 
   const possibleIngredients = [
     "beans",
@@ -28,12 +49,18 @@ function OrderForm(props) {
     "cilantro",
     "sour cream",
   ];
+
+  const addIngredient = (e ,newIngredient) => {
+    e.preventDefault()
+    setIngredients([...ingredients, newIngredient]);
+  };
+
   const ingredientButtons = possibleIngredients.map((ingredient) => {
     return (
       <button
         key={ingredient}
         name={ingredient}
-        onClick={(e) => setIngredients(event.target.value)}
+        onClick={(e) => addIngredient(e ,e.target.name)}
       >
         {ingredient}
       </button>
@@ -47,7 +74,7 @@ function OrderForm(props) {
         placeholder="Name"
         name="name"
         value={name}
-        onChange={(e) => setName(event.target.value)}
+        onChange={(e) => setName(e.target.value)}
       />
 
       {ingredientButtons}
