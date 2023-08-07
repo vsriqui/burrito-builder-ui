@@ -9,15 +9,16 @@ const getOrders = () => {
 };
 
 
-function postOrders(newTrick) {
+function postOrders(newOrder) {
   return fetch('http://localhost:3001/api/v1/orders', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify()
+      body: JSON.stringify(newOrder)
     })
     .then(response => {
+      console.log(response.body)
       if (response.ok) {
         return response;
       } else {

@@ -6,32 +6,35 @@ function OrderForm({addOrder, ...props}) {
   const [name, setName] = useState("");
   const [ingredients, setIngredients] = useState([]);
 
-  console.log(ingredients)
+  // console.log(ingredients)
 
-  function handleSubmit(e) {
+  // function handleSubmit(e) {
   //   e.preventDefault();
   //   clearInputs();
   // }
 
-  // function clearInputs() {
-  //   setName("");
-  //   setIngredients([]);
-  // };
+  function clearInputs() {
+    setName("");
+    setIngredients([]);
+  };
 
-  // function submitOrder(event) {
-  //   event.preventDefault()
-  //   const newOrder = {
-  //     name,
-  //     ingredients
-  //   }
+  function handleSubmit(event) {
+    event.preventDefault()
+    const newOrder = {
+      
+      name,
+      ingredients
 
+    }
+
+    console.log(newOrder, 'what I want to post')
      
-  //   postOrders(newOrder)
-  //   .then(aOrder => {
-  //     addOrder(aOrder);
-  //     clearInputs();
-  //   })
-  //   .catch(err => alert(err)); 
+    postOrders(newOrder)
+    .then(aOrder => {
+      addOrder(aOrder);
+      // clearInputs();
+    })
+    .catch(err => alert(err)); 
   
   }
 
