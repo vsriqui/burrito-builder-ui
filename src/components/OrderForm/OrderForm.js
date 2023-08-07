@@ -32,6 +32,7 @@ function OrderForm({addOrder, ...props}) {
     .catch(err => alert(err)); 
   } else {
     setSubmitComplete(true)
+    clearInputs();
   }
   
   }
