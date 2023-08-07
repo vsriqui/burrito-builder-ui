@@ -5,13 +5,7 @@ import { postOrders } from "../../apiCalls";
 function OrderForm({addOrder, ...props}) {
   const [name, setName] = useState("");
   const [ingredients, setIngredients] = useState([]);
-
-  // console.log(ingredients)
-
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   clearInputs();
-  // }
+  const [submitComplete, setSubmitComplete] = useState(false)
 
   function clearInputs() {
     setName("");
@@ -28,13 +22,17 @@ function OrderForm({addOrder, ...props}) {
     }
 
     console.log(newOrder, 'what I want to post')
-     
+    if (newOrder.name && ingredients.length) {
     postOrders(newOrder)
     .then(aOrder => {
       addOrder(aOrder);
-      // clearInputs();
+      clearInputs();
+      setSubmitComplete(false)
     })
     .catch(err => alert(err)); 
+  } else {
+    setSubmitComplete(true)
+  }
   
   }
 
@@ -81,7 +79,7 @@ function OrderForm({addOrder, ...props}) {
       />
 
       {ingredientButtons}
-
+      {submitComplete && <h3>You need to complete your form!</h3>}
       <p>Order: {ingredients.join(", ") || "Nothing selected"}</p>
 
       <button onClick={(e) => handleSubmit(e)}>Submit Order</button>
