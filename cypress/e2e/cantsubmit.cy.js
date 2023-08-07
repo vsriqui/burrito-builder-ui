@@ -9,7 +9,7 @@ describe("Bad submit", () => {
 
     cy.intercept("POST", 'http://localhost:3001/api/v1/orders', {
       statusCode: 201,
-      fixture: 'post.json'
+      fixture: 'bare.json'
     })
     .as('post')
 

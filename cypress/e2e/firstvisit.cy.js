@@ -1,5 +1,5 @@
-describe("empty spec", () => {
-  it("Should post and receive the data", () => {
+describe("fisrt visit", () => {
+  it("dom should have right elements on initialization", () => {
 
     cy.intercept("GET", 'http://localhost:3001/api/v1/orders', {
       statusCode: 200,
