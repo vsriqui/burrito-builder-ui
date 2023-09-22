@@ -1,3 +1,7 @@
+# Explanation
+
+This was our live final exam for Turing.edu, it involved making operational an incomplete/buggy react application. Connecting data flows with get and post requests to a concurrently local running and provided backend, and writing extensive cypress testing for the application with a time limit of three hours.
+
 # Burrito Builder UI
 
 Our company is building a prototype ticketing system for a local burrito shop. Unfortunately, the form dev on the project recently quit, leaving behind a broken app and little to no documentation. It's your job to save the project!
